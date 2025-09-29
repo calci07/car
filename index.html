@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Autos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>MeowMeow Autos</header>
+
+    <div class="taglines">
+        <p>Elevate Your Drive</p>
+        <p>Quality vehicles, next-gen performance.</p>
+    </div>
+
+    <div class="mainContent">
+        <div class="header-with-button">
+            <div>
+                <p>Select a car</p>
+                <p class="subtitle">Choose your preferred brand, model, and color</p>
+            </div>
+            <button type="button" class="btn-add-new" id="btnAddNew">+ Add New Car Model</button>
+        </div>
+
+        <form id="carForm">
+            <div class="dropDown">
+                <select id="brand" required>
+                    <option value="">Choose a brand...</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Ford">Ford</option>
+                </select>
+
+                <select id="model" required>
+                    <option value="">Choose a model...</option>
+                    <option value="Corolla" data-brand="Toyota">Corolla</option>
+                    <option value="Civic" data-brand="Honda">Civic</option>
+                    <option value="Ranger" data-brand="Ford">Ranger</option>
+                </select>
+            </div>
+
+            <div class="colors">
+                <p>Select a color</p>
+                <div class="color-grid">
+                    <div class="color-option">
+                        <input type="radio" id="colorBlack" name="color" value="Black" checked>
+                        <label for="colorBlack" class="color-label">
+                            <div class="color-circle color-black"></div>
+                            <p class="color-name">Black</p>
+                        </label>
+                    </div>
+                    <div class="color-option">
+                        <input type="radio" id="colorWhite" name="color" value="White">
+                        <label for="colorWhite" class="color-label">
+                            <div class="color-circle color-white"></div>
+                            <p class="color-name">White</p>
+                        </label>
+                    </div>
+                    <div class="color-option">
+                        <input type="radio" id="colorRed" name="color" value="Red">
+                        <label for="colorRed" class="color-label">
+                            <div class="color-circle color-red"></div>
+                            <p class="color-name">Red</p>
+                        </label>
+                    </div>
+                    <div class="color-option">
+                        <input type="radio" id="colorBlue" name="color" value="Blue">
+                        <label for="colorBlue" class="color-label">
+                            <div class="color-circle color-blue"></div>
+                            <p class="color-name">Blue</p>
+                        </label>
+                    </div>
+                    <div class="color-option">
+                        <input type="radio" id="colorGray" name="color" value="Gray">
+                        <label for="colorGray" class="color-label">
+                            <div class="color-circle color-gray"></div>
+                            <p class="color-name">Gray</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="btn-add-car">Add Car</button>
+            </div>
+        </form>
+    </div>
+
+ 
+    <div id="addCarModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Car Model</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="addCarModelForm">
+                <div class="modal-body">
+                    <div class="input-group">
+                        <label for="newBrand">Brand:</label>
+                        <input type="text" id="newBrand" placeholder="e.g., Mazda, Nissan" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="newModel">Model:</label>
+                        <input type="text" id="newModel" placeholder="e.g., CX-5, Altima" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="newPrice">Base Price (₱):</label>
+                        <input type="number" id="newPrice" placeholder="e.g., 1500000" min="0" step="1000" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" id="btnCancel">Cancel</button>
+                    <button type="submit" class="btn-submit">Add Model</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+ 
+    <div class="mainContent">
+        <p>Car Inventory</p>
+        <p class="subtitle">View all cars in your showroom</p>
+
+        <table id="inventoryTable">
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Original Price</th>
+                    <th>Final Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="empty-row">
+                    <td colspan="5">No cars added yet. Add your first car above!</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
